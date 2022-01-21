@@ -1,8 +1,7 @@
 var arr = [1, 2, 3];
 function f (arr) {
-    if (Array.isArray(arr)) {throw new Error ( 'Error: parametr type shoul be an array' )};
-    if (arr === []) {throw new Error ( `Error: parametr can't be an empty` )};
-    
+    if (!Array.isArray(arr)) {throw new Error ( 'Error: parametr type shoul be an array' )};
+    if (arr == 0) {throw new Error ( `Error: parametr can't be an empty` )};
+    console.log(arr);    
 }
-console.log (f(arr));
-console.log (typeof arr);
+f(arr);
