@@ -1,6 +1,6 @@
 function f() {
     var b = 0;
-    for (i = 0; i < arguments.length; i++) {
+    for (var i = 0; i < arguments.length; i++) {
         if (typeof (arguments[i])  === 'number') {
         b += arguments[i];  
         } else {

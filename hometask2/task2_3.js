@@ -1,11 +1,12 @@
-function f(x,y,z) {
-    var b = 0;
-    if (z == 0) { throw new Error ( 'Error: z = 0' ) } else {
+function f(x,y,z) {   
+    function ChekNumber(){
         for (var i = 0; i < arguments.length; i++) {
-            if ( typeof (arguments[i]) !== 'number') {
-                throw new Error ( 'Error: parametr type is not a number' ) } else {b=(x-y)/z;}
+            if ( typeof (arguments[i]) !== 'number') throw new Error ( 'Error: parametr type is not a number' );
         }
-        return b;
+    }
+    if (z === 0) { throw new Error ( 'Error: divider = 0' ) } else {   //Проверка делителя - не ноль?
+            ChekNumber(x,y,z);                                         //Проверка аргументов - числа?
+            return((x-y)/z);            
     }
 }
-console.log( f(8,4,0) )
+console.log( f(6,3,1) );
