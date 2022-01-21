@@ -6,6 +6,7 @@ function f (arr) {
     function rec (arr) {        
         if (i>0) {
             console.log(arr[i]); 
+            
             rec(arr[i-1]);
         }
     }
