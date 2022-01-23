@@ -1,7 +1,7 @@
 function f(x) {   
-    function ChekArgInRange(){
+    function ChekArgInRange(x){
         if ( typeof (x) !== 'number') {throw new Error ( 'Error: parametr type is not a number' )} else 
-            if ( (x > 7) || (x<1) ) {throw new Error ( 'Error: parametr should be in range of 1 to 8' )}
+            if ( (x > 7) || (x < 1) ) {throw new Error ( 'Error: parametr should be in range of 1 to 8' )}
         
     }
 ChekArgInRange(x);                                         //Проверка аргументов - числа и в диапазоне или нет
@@ -30,4 +30,4 @@ switch (x) {
       break;
 }
 }
-console.log( f(5) );
+console.log(f(5));
