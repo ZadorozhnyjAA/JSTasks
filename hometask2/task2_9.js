@@ -1,19 +1,20 @@
-function solution(x,y) {
-    function replaceUndefined(q){
+function solution(x,y) {            
+    function replaceUndefined(q){                                                   //проверка на наличие пустых элементов массива
     if (typeof(q) == 'undefined') {
         q = null;
         return q;
     } else {return q;}
     };
+
     let res = [];
     let j = 0;
     let n = 0;
     if (x.length > y.length) { 
-        j = x.length - 1} else {j = y.length - 1};
+        j = x.length - 1} else {j = y.length - 1};                                  //цикл повторяем по кол-ву элементов в более длинном массиве
         for (; j >= 0; j--){
-            res[j] = n + replaceUndefined( x.pop() ) + replaceUndefined( y.pop() );
+            res[j] = n + replaceUndefined( x.pop() ) + replaceUndefined( y.pop() ); //элемент нового массива получим как сумму последних элементов массивов и единицы, если предыдущая сумма была больше 10
             if (res[j] >= 10) {n = 1; res[j] = res[j] - 10} else {n=0};
-            if ((j === 0) && (n===1)) res.unshift(1);
+            if ((j === 0) && (n===1)) res.unshift(1);                               //если более длинный массив закончился, но предыдущий элемент был больше 10, добавим еще один эелемент равный 1
     }
     return res; 
 }
