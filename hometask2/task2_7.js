@@ -1,23 +1,10 @@
-function replaceUndefined(q){
-if (typeof(q) == 'undefined') {
-    q = null;
-    return q;} else {return q;}
-}
-
-function solution(x,y) {
-    let res = [];
-    let j = 0;
-    let n = 0;
-    if (x.length > y.length) { 
-        j = x.length - 1} else {j = y.length - 1};
-        for (; j >= 0; j--){
-            res[j] = n + replaceUndefined(x[j]) + replaceUndefined(y[j]);
-            if (res[j] >= 10) {n = 1; res[j] = res[j] - 10} else n=0;
-         
+function getDivisors(x) {
+    var arr = [];
+    if ( typeof (x) !== 'number') {throw new Error ( 'Error: parametr type is not a number' )}; 
+    if ( x <= 0 ) {throw new Error ( `Error: parametr can't be <=0` )};
+    for (i = 1; i<= x; i++) {
+        if(x % i === 0) {arr.push(i)};
     }
-    return res; 
+return arr;
 }
-  
-let x = [];
-let y = [];
-console.log(solution(x,y));
+console.log(getDivisors(12)); 
