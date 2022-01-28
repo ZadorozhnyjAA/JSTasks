@@ -1,7 +1,13 @@
 const arr = [1, 2, 3];
-function foreach ( arr, f ) {
-    if (!Array.isArray(arr)) {throw new Error ( 'Error: it is not an array ' )};
-    if (typeof(f) !== "function") {throw new Error ( 'Error: it is not an function ' )};
-    if ((arr == "undefined") && (f == "undefined")) {throw new Error ( 'Error: it is not an function ' )};
+function foreach ( a, f ) {
+    if ((typeof(a) == "undefined") || (typeof(f) == "undefined")) {throw new Error ( `Error: parametr can't be an empty` )};
+    if (!Array.isArray(a)) {throw new Error ( 'Error: it is not an array ' )};
+    if (typeof(f) !== "function") {throw new Error ( 'Error: it is not an function ' )};    
+    var item;
+    for (var i =0; i++; i < a.length) {
+        f(a[i]);
+    }
 }
-foreach(arr, (arr[1],arr[2]));
+
+foreach(arr, (item, i, a) => {
+    console.log(`${item} имеет позицию ${i} в ${a}`)});
