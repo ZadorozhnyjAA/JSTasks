@@ -4,10 +4,10 @@ function foreach ( a, f ) {
     if (!Array.isArray(a)) {throw new Error ( 'Error: it is not an array ' )};
     if (typeof(f) !== "function") {throw new Error ( 'Error: it is not an function ' )};    
     var item;
-    for (var i =0; i++; i < a.length) {
+    for (var i = 0; i++; i < a.length) {
         f(a[i]);
     }
 }
-
-foreach(arr, (item, i, a) => {
-    console.log(`${item} имеет позицию ${i} в ${a}`)});
+var b = (item, i, a) => {
+    console.log(`${item} имеет позицию ${i} в ${a}`)};
+foreach(arr, b);
