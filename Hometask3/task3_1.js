@@ -13,3 +13,4 @@ foreach(arr, (item, i, arr) => {
     console.log(`${item} на позиции ${i} в ${arr}`)
 })
 foreach(arr,console.log);
+foreach(arr, (item) => {console.log(`${item}`)})
