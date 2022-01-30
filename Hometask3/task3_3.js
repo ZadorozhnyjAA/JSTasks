@@ -12,4 +12,4 @@ function every ( arr, f ) {
     return true;
 }
 
-console.log(every(arr, (item, i, arr) => item < 4));
+console.log(every(arr, (item, i, arr) => item < 2));
