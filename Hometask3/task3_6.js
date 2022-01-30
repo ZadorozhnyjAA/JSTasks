@@ -1,32 +1,16 @@
-if (!Array.prototype.reduce) {
-    Array.prototype.reduce = function(callback/*, initialValue*/) {
-      'use strict';
-      if (this == null) {
-        throw new TypeError('Array.prototype.reduce called on null or undefined');
-      }
-      if (typeof callback !== 'function') {
-        throw new TypeError(callback + ' is not a function');
-      }
-      var t = Object(this), len = t.length >>> 0, k = 0, value;
-      console.log(arguments.length);
-      if (arguments.length >= 2) {
-        value = arguments[1];
-      } else {
-        while (k < len && ! (k in t)) {
-          k++;
-        }
-        if (k >= len) {
-          throw new TypeError('Reduce of empty array with no initial value');
-        }
-        value = t[k++];
-      }
-      for (; k < len; k++) {
-        if (k in t) {
-          value = callback(value, t[k], k, t);
-        }
-      }
-      return value;
-    };
+"use strict";
+const arr = [1, 2, 3];
+const acc = 0;
+function reduce ( arr, f, acc ) {
+    if ((typeof(arr) === "undefined") || (typeof(f) === "undefined") || (typeof(acc) === "undefined")) {throw new Error ( `Error: parametr can't be an empty` )};
+    if ((typeof(acc) !== "string") && (typeof(acc) !== "number"))  {throw new Error ( 'Error: it is not a number or a string ' )};
+    if (!Array.isArray(arr)) {throw new Error ( 'Error: it is not an array ' )};
+    if (typeof(f) !== "function") {throw new Error ( 'Error: it is not a function ' )};    
+    let res;
+    for (let i = (arr.length-1); i >= 0; i--) {
+        acc = f(acc, arr[i], i, arr);
+    }
+    return acc;
 }
-let arr = [1,2,3], acc = 0;
-console.log(arr.reduce( ( (acc, item, i, arr) => (item+5) ), acc));
+
+console.log(reduce(arr, ((acc, item, i, arr) => (acc+item)), acc));
