@@ -2,12 +2,11 @@
 function f ( arr ) {
     if (!Array.isArray(arr)) {throw new Error ( 'Error: it is not an array ' )};
     if ((typeof(arr) == "undefined") || (arr.length === 0)) {throw new Error ( `Error: parametr can't be an empty or empty array` )};
-    let resArr = [], res;
+    let resArr = [], res = 0;
     resArr = arr.flat(Infinity);
-    console.log(resArr);
     for (let i = 0 ; i < resArr.length; i++) {
+        if (typeof(resArr[i]) !== "number") {throw new Error ( 'Error: it is not a number' )};
         res += resArr[i];
-        console.log(resArr[i]);
     }
 return res;
 
